@@ -5,8 +5,6 @@ namespace App\Business;
 use App\Models\Cart;
 use App\Models\Discount;
 use Carbon\Carbon;
-use DateTime;
-use Exception;
 
 class CartDiscounter
 {
@@ -27,11 +25,13 @@ class CartDiscounter
             } elseif ($discount->discount_type == Discount::DISCOUNT_TYPE_PERCENTAGE) {
                 $nextDiscount = $cartTotalPrice * $discount->amount;
             } else {
+
                 // TODO log this unknown discount type, we will continue executing so that sales can still be made
                 continue;
             }
 
             if($cartTotalPrice - $nextDiscount > 0.0) {
+
                 $discountedTotalPrice = $cartTotalPrice - $nextDiscount;
                 $appliedDiscounts[] = $discount;
             }
