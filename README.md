@@ -14,4 +14,3 @@ No discount should be applied that will reduce the cart total to below zero.
 # Requirements not being considered
 
 * Limit discounts to certain product categories.
-* Considering minimum cart totals before applying discounts.
